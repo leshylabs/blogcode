@@ -41,16 +41,19 @@
 # SUCH DAMAGE.
 #
 
+# Changes
+#  8/9/13 - Added some default optimizations to convert
+
 use strict;
 use File::Temp qw/ tempdir /;
 
 my $CONFIG = {
     ffmpeg => 'ffmpeg',       # ffmpeg binary
     convert => 'convert',     # ImageMagick convert binary
-    ffmpeg_args => '',        # Extra arguments for ffmpeg
-    convert_args => '',       # Extra arguments for convert
     output_file => 'out.gif', # Default file to write to
-    default_fps => 10         # Default frames per second
+    default_fps => 10,        # Default frames per second
+    ffmpeg_args => '',        # Extra arguments for ffmpeg
+    convert_args => '-layers removeDups -layers Optimize' # Extra arguments for convert
 };
 
 sub usage {
